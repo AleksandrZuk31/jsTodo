@@ -32,14 +32,17 @@ const todoControl = document.querySelector('.todo-control'),
               item.completed = !item.completed;
             render();
       })
-// кнопака корзины
+// кнопка корзины
       const btnTodoRemove = li.querySelector('.todo-remove');
           btnTodoRemove.addEventListener('click', function(){
             li.querySelector('.text-todo').remove();
             li.classList.remove('todo-item');
         })
-       
-      });
+      }); 
+      
+      // загрузка в localStorage
+console.log(todoData);
+localStorage.ar = JSON.stringify(todoData);
   };
 // кнопка добавления
   todoControl.addEventListener('submit', function(event){
@@ -54,8 +57,6 @@ const todoControl = document.querySelector('.todo-control'),
           completed: false,
         }; 
       todoData.push(newTodo);
-// загрузка в localStorage
-      localStorage.ar = JSON.stringify(todoData);
 // отчистка поля ввода
       headerInput.value = '';
       
@@ -63,8 +64,7 @@ const todoControl = document.querySelector('.todo-control'),
     }; getHeaderInput();
 
     render();
-  })
-  
-render();
+  });
 // вывод из localStorage
-todoData = JSON.parse(localStorage.ar);
+  todoData = JSON.parse(localStorage.ar);
+render();
