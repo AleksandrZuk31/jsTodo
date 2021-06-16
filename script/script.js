@@ -37,12 +37,24 @@ const todoControl = document.querySelector('.todo-control'),
           btnTodoRemove.addEventListener('click', function(){
             li.querySelector('.text-todo').remove();
             li.classList.remove('todo-item');
-        })
-      }); 
-      
+            todoData.forEach(function(item){
+              todoData.indexOf(item);
+              console.log(todoData);
+            })
+            todoData.splice(item, 1);
+         })
+//    кнопка корзины
+        //  const btnTodoRemove = li.querySelector('.todo-remove');
+        //      btnTodoRemove.addEventListener('click', function(){
+        //        li.querySelector('.text-todo').remove();
+        //        li.classList.remove('todo-item');
+        //    })
+
+      });
+//     console.log(todoData);
       // загрузка в localStorage
-console.log(todoData);
-localStorage.ar = JSON.stringify(todoData);
+localStorage.ar = JSON.stringify(todoData); 
+console.log();
   };
 // кнопка добавления
   todoControl.addEventListener('submit', function(event){
