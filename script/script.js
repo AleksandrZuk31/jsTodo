@@ -14,7 +14,7 @@ const todoControl = document.querySelector('.todo-control'),
       todoData.forEach(function(item){
         const li = document.createElement('li');
         li.classList.add('todo-item');
-
+        
         li.innerHTML = '<span class="text-todo">' + item.value + '</span>' +
         '<div class="todo-buttons">' +
             '<button class="todo-remove"></button>' +
@@ -30,6 +30,7 @@ const todoControl = document.querySelector('.todo-control'),
       const btnTodoCompleted = li.querySelector('.todo-complete');
           btnTodoCompleted.addEventListener('click', function(){
               item.completed = !item.completed;
+               localStorage.ar = JSON.stringify(todoData);      
             render();
       })
 // кнопка корзины
@@ -37,21 +38,11 @@ const todoControl = document.querySelector('.todo-control'),
           btnTodoRemove.addEventListener('click', function(){
             li.querySelector('.text-todo').remove();
             li.classList.remove('todo-item');
-            todoData.forEach(function(item){
-              todoData.indexOf(item);
-              console.log(todoData);
-            })
-            todoData.splice(item, 1);
+             todoData.splice(todoData.indexOf(item), 1);
+            localStorage.ar = JSON.stringify(todoData); 
+             render();             
          })
-//    кнопка корзины
-        //  const btnTodoRemove = li.querySelector('.todo-remove');
-        //      btnTodoRemove.addEventListener('click', function(){
-        //        li.querySelector('.text-todo').remove();
-        //        li.classList.remove('todo-item');
-        //    })
-
       });
-//     console.log(todoData);
       // загрузка в localStorage
 localStorage.ar = JSON.stringify(todoData); 
 console.log();
@@ -71,7 +62,6 @@ console.log();
       todoData.push(newTodo);
 // отчистка поля ввода
       headerInput.value = '';
-      
       }
     }; getHeaderInput();
 
